@@ -8,10 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var items: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        Api.shared.getData { [self] items, error in
+            if let items = items {
+                self.items = items
+            }
+        }
     }
 
 
