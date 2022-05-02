@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         viewModel.getData { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
+                self?.tableView.layoutIfNeeded()
             }
         }
     }
@@ -45,4 +46,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
 }
