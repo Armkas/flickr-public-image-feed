@@ -19,6 +19,7 @@
 		B49E809B281FD7D0004F9F0C /* flickrFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E809A281FD7D0004F9F0C /* flickrFeedUITestsLaunchTests.swift */; };
 		B49E80A8281FE240004F9F0C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E80A7281FE240004F9F0C /* Api.swift */; };
 		B49E80AA281FF1CE004F9F0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E80A9281FF1CE004F9F0C /* Model.swift */; };
+		B49E80AC2820035A004F9F0C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49E80AB2820035A004F9F0C /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B49E809A281FD7D0004F9F0C /* flickrFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flickrFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B49E80A7281FE240004F9F0C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B49E80A9281FF1CE004F9F0C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B49E80AB2820035A004F9F0C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B49E8074281FD7CF004F9F0C /* AppDelegate.swift */,
 				B49E8076281FD7CF004F9F0C /* SceneDelegate.swift */,
 				B49E8078281FD7CF004F9F0C /* ViewController.swift */,
+				B49E80AB2820035A004F9F0C /* ViewModel.swift */,
 				B49E807A281FD7CF004F9F0C /* Main.storyboard */,
 				B49E8080281FD7D0004F9F0C /* Assets.xcassets */,
 				B49E8082281FD7D0004F9F0C /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				B49E80AA281FF1CE004F9F0C /* Model.swift in Sources */,
 				B49E80A8281FE240004F9F0C /* Api.swift in Sources */,
 				B49E8077281FD7CF004F9F0C /* SceneDelegate.swift in Sources */,
+				B49E80AC2820035A004F9F0C /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
