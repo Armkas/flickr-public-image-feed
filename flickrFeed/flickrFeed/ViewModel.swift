@@ -10,11 +10,12 @@ import Foundation
 class ViewModel {
     
     var items: [Item] = []
-
-    init () {
+    
+    func getData(_ completion: @escaping () -> Void) {
         Api.shared.getData { [self] items, error in
             if let items = items {
                 self.items = items
+                completion()
             }
         }
     }
