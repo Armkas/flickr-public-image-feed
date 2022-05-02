@@ -47,12 +47,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+        let image = UIImage(url: viewModel.items[indexPath.row].media.m)
+        let aspect = image.size.height / image.size.width
+        return (tableView.bounds.width - 16) * aspect + 16
     }
 
 }
