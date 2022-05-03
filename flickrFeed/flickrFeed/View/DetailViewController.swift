@@ -30,8 +30,13 @@ class DetailViewController: UIViewController {
         guard let url: URL = item?.media.m else { return }
         let shareImage = UIImage(url: url)
         let activityItems = [shareImage] as [Any]
-        let toVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        present(toVC, animated: true, completion: nil)
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        if let popoverController = activityVC.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        present(activityVC, animated: true, completion: nil)
     }
     
     func setup(_ item: Item) {
