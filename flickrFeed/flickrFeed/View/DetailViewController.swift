@@ -26,6 +26,14 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func share(_ sender: Any) {
+        guard let url: URL = item?.media.m else { return }
+        let shareImage = UIImage(url: url)
+        let activityItems = [shareImage] as [Any]
+        let toVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        present(toVC, animated: true, completion: nil)
+    }
+    
     func setup(_ item: Item) {
         self.item = item
         detailImageVIew.image = UIImage(url: item.media.m)

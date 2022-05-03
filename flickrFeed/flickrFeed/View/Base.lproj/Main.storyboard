@@ -63,7 +63,7 @@
                                 <rect key="frame" x="8" y="52" width="398" height="409"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HH1-A0-5qw">
-                                <rect key="frame" x="0.0" y="477" width="414" height="104"/>
+                                <rect key="frame" x="0.0" y="477" width="414" height="151"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqK-uw-EeG">
                                         <rect key="frame" x="186.5" y="0.0" width="41.5" height="20.5"/>
@@ -78,28 +78,35 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-fA-2OV">
-                                        <rect key="frame" x="64.5" y="73" width="285" height="31"/>
+                                        <rect key="frame" x="68.5" y="73" width="277" height="31"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gm-kL-L3D">
-                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="31"/>
-                                                <color key="backgroundColor" name="AccentColor"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
-                                                <connections>
-                                                    <action selector="clickBackButton:" destination="487-eV-sn6" eventType="touchUpInside" id="KYH-cY-B18"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efH-vA-BGr">
-                                                <rect key="frame" x="150.5" y="0.0" width="134.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130.5" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Open in  Browser"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Open in Browser"/>
                                                 <connections>
                                                     <action selector="openUrl:" destination="487-eV-sn6" eventType="touchUpInside" id="3c3-pS-USZ"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kz-oB-Wb7">
+                                                <rect key="frame" x="146.5" y="0.0" width="130.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Share"/>
+                                                <connections>
+                                                    <action selector="share:" destination="487-eV-sn6" eventType="touchUpInside" id="GfY-Eb-G51"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gm-kL-L3D">
+                                        <rect key="frame" x="179" y="120" width="56" height="31"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                        <connections>
+                                            <action selector="clickBackButton:" destination="487-eV-sn6" eventType="touchUpInside" id="KYH-cY-B18"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
