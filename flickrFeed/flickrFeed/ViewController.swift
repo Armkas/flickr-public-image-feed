@@ -44,7 +44,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailViewController.modalPresentationStyle = .fullScreen
+        self.present(detailViewController, animated: true, completion: nil)
+        detailViewController.setup(viewModel.items[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
