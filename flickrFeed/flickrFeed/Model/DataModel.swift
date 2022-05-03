@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  DataModel.swift
 //  flickrFeed
 //
 //  Created by Pu Yue - PU YUE on 2022/05/02.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Model: Codable {
+struct DataModel: Codable {
     let title: String?
     let link: URL?
     let description: String?

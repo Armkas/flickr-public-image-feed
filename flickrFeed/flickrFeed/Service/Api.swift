@@ -38,7 +38,7 @@ extension Api {
                     return
                 }
                 do {
-                    let data = try JSONDecoder().decode(Model.self, from: data)
+                    let data = try JSONDecoder().decode(DataModel.self, from: data)
                     print("API Get Data successful")
                     completion(data.items, nil)
                 } catch {
