@@ -13,8 +13,9 @@ final class Api {
 
 extension Api {
 
-    func getData(_ completion: @escaping ([Item]?, Error?) -> Void)  {
-        guard let url = URL(string: "https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1") else { return }
+    func getData(_ text: String?, completion: @escaping ([Item]?, Error?) -> Void)  {
+        let keyword = text ?? ""
+        guard let url = URL(string: "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=\(keyword)&nojsoncallback=1") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         

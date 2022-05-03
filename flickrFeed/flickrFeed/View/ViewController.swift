@@ -10,13 +10,42 @@ import UIKit
 class ViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSearchBar()
         setupTableView()
+        resetSearch()
+    }
+    
+    private func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
+    }
+    
+    private func judgeKeyword(_ text: String) -> String? {
+        // Remove space at the beginning and end of keyword, eg: "  abc  " -> "abc"
+        // Guard empty string, eg: ""
+        // Guard string that only has whitespace, eg: "   "
+        // Do not search twice
+        let keyword = text.trimmingCharacters(in: .whitespaces)
+        guard !keyword.isEmpty,
+              keyword != viewModel.lastSearchedText
+        else { return nil }
+        return keyword
+    }
+
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "Cell", bundle: .main), forCellReuseIdentifier: "Cell")
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func resetSearch() {
         viewModel.getData { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -24,11 +53,29 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func search(_ keyword: String) {
+        viewModel.getData(keyword) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.viewModel.lastSearchedText = keyword
+                self?.tableView.reloadData()
+                self?.tableView.layoutIfNeeded()
+            }
+        }
+    }
+}
 
-    private func setupTableView() {
-        tableView.register(UINib(nibName: "Cell", bundle: .main), forCellReuseIdentifier: "Cell")
-        tableView.dataSource = self
-        tableView.delegate = self
+extension ViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text,
+              let keyword = judgeKeyword(text)
+        else { return }
+        search(keyword)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        resetSearch()
     }
 }
 
@@ -56,5 +103,4 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let aspect = image.size.height / image.size.width
         return (tableView.bounds.width - 16) * aspect + 16
     }
-
 }
