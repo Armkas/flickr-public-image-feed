@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "Cell", bundle: .main), forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableView.automaticDimension
+
     }
     
     func resetSearch() {
@@ -86,7 +89,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
-        cell.configure(viewModel.items[indexPath.row])
+        cell.configure(viewModel.items[indexPath.row]) {
+            cell.layoutIfNeeded()
+        }
         return cell
     }
     
@@ -99,8 +104,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let image = UIImage(url: viewModel.items[indexPath.row].media.m)
-        let aspect = image.size.height / image.size.width
-        return (tableView.bounds.width - 16) * aspect + 16
+        //let image = UIImage(url: viewModel.items[indexPath.row].media.m)
+        //let aspect = image.size.height / image.size.width
+        //return (tableView.bounds.width - 16) * aspect + 16
+        return UITableView.automaticDimension
+        
+        /* 拓展: 根据文字计算高度
+        let attribute = [NSShadowAttributeName:UIFont.systemFont(ofSize: 15)]
+        return textString.boundingRect(with: CGSize.init(width: 300, height: 0), options: .usesDeviceMetrics, attributes: attribute, context: nil).size.width+10
+         */
+
     }
 }
