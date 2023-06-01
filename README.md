@@ -1,4 +1,4 @@
-# flickr-public-image-feed
+# 使用flickr免费图片API显示在tableview
 
 ## Function
 
